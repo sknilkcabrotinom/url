@@ -225,8 +225,13 @@ trait HostValidator
      */
     protected function isValidContent(array $data)
     {
-        $res = preg_grep('/^[0-9a-z]([0-9a-z-]{0,61}[0-9a-z])?$/i', $data, PREG_GREP_INVERT);
-
+        if ($this->isIp()) {
+            $pattern = '/^[0-9a-z]([0-9a-z-]{0,61}[0-9a-z])?$/i';
+        } else {
+            $pattern = '/^[0-9a-z]([0-9a-z-_]{0,61}[0-9a-z])?$/i';
+        }
+        $res = preg_grep($pattern, $data, PREG_GREP_INVERT);
+        
         if (! empty($res)) {
             throw new InvalidArgumentException('Invalid Hostname, verify its content');
         }
