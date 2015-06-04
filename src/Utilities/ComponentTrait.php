@@ -90,6 +90,15 @@ trait ComponentTrait
     }
 
     /**
+     * @return mixed
+     */
+    public function decoded()
+    {
+        $str = $this->__toString();
+        return str_replace(static::$characters_set, static::$characters_set_encoded, rawurldecode($str));
+    }
+    
+    /**
      * {@inheritdoc}
      */
     public function isEmpty()

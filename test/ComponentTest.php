@@ -34,4 +34,14 @@ class UserTest extends PHPUnit_Framework_TestCase
         $user = new Component(new Component($raw));
         $this->assertSame($parsed, $user->getUriComponent());
     }
+
+    /**
+     * @dataProvider validUserProvider
+     */
+    public function testDecoded($raw, $parsed)
+    {
+        $user = new Component(new Component($raw));
+        $this->assertSame($parsed, $user->getUriComponent());
+        $this->assertSame((string) $raw, $user->decoded());
+    }
 }
