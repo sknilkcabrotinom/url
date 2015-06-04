@@ -13,6 +13,7 @@ The `League\Url` package provides simple and intuitive classes to create and man
 Changes from main repo
 ------
 - Support underscore for domain name (e.i. http://sub_domain.main-domain.com). (issue https://github.com/thephpleague/url/issues/68)
+- Path and Query decoding
 
 Highlights
 ------
