@@ -228,6 +228,9 @@ trait HostValidator
         if ($this->isIp()) {
             $pattern = '/^[0-9a-z]([0-9a-z-]{0,61}[0-9a-z])?$/i';
         } else {
+            if (count($data) == 1) {
+                throw new InvalidArgumentException('Invalid Domain, verify its content');
+            }
             $pattern = '/^[0-9a-z]([0-9a-z-_]{0,61}[0-9a-z])?$/i';
         }
         $res = preg_grep($pattern, $data, PREG_GREP_INVERT);

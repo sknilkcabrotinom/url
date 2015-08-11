@@ -14,6 +14,7 @@ Changes from main repo
 ------
 - Support underscore for domain name (e.i. http://sub_domain.main-domain.com). (issue https://github.com/thephpleague/url/issues/68)
 - Path and Query decoding
+- Update HostValidator to make sure domain has tld
 
 Highlights
 ------
