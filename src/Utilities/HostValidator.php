@@ -186,7 +186,7 @@ trait HostValidator
     protected function assertValidHost(array $labels)
     {
         $verifs = array_filter($labels, function ($value) {
-            return ! empty($value);
+            return !empty($value) || $value == '0';
         });
 
         if ($verifs != $labels) {
